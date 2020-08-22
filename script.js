@@ -1,183 +1,94 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+var resultEl = document.querySelector("#password");
+var lengthEl = document.querySelector("#length");
+var uppercaseEl = document.querySelector("#uppercase");
+var lowercaseEl = document.querySelector("#lowercase");
+var numericEl = document.querySelector("#numeric");
+var specialEl = document.querySelector("#special");
+var generateEl = document.querySelector("#generate");
+
+generateEl.addEventListener("click", () => {
+var length = +lengthEl.value;
+var hasLower = lowercaseEl.checked;
+var hasUpper = uppercaseEl.checked;
+var hasNumber = numericEl.checked;
+var hasSpecial = specialEl.checked;
+
+resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSpecial, length)
+}
+)
+
+function generatePassword(lower, upper, special, numeric, length){
+ var passwordResult = "";
+ var typesCount = lower + upper + numeric + special;
+ var typesloop = [{ lower }, { upper }, { numeric }, { special }].filter
+ (item => Object.values(item) [0]);
+
+ if (typesCount === 0){
+  return "Please have at least one checkbox checked!";
+}
+
+ for(var i = 0; i <= length; i+=typesCount) {
+   typesloop.forEach(type => {
+     var funcName = Object.keys(type) [0];
+
+     passwordResult += randompick[funcName] ();
+   });
+ }
+
+
+ var pushedResult = passwordResult.slice(0, length);
+ return pushedResult;
 
 }
 
-//return a string
-function generatePassword() {
-    // ======= vars definition ======
-    // Array of special characters to be included in password
-    var specialCharacters = [
-       "@",
-       "%",
-       "+",
-       "\\",
-       "/",
-       "'",
-       "!",
-       "#",
-       "$",
-       "^",
-       "?",
-       ":",
-       ",",
-       ")",
-       "(",
-       "}",
-       "{",
-       "]",
-       "[",
-       "~",
-       "-",
-       "_",
-       ".",
-    ];
-    // Array of numeric characters to be included in password
-    var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    // Array of lowercase characters to be included in password
-    var lowerCasedCharacters = [
-       "a",
-       "b",
-       "c",
-       "d",
-       "e",
-       "f",
-       "g",
-       "h",
-       "i",
-       "j",
-       "k",
-       "l",
-       "m",
-       "n",
-       "o",
-       "p",
-       "q",
-       "r",
-       "s",
-       "t",
-       "u",
-       "v",
-       "w",
-       "x",
-       "y",
-       "z",
-    ];
-    // Array of uppercase characters to be included in password
-    var upperCasedCharacters = [
-       "A",
-       "B",
-       "C",
-       "D",
-       "E",
-       "F",
-       "G",
-       "H",
-       "I",
-       "J",
-       "K",
-       "L",
-       "M",
-       "N",
-       "O",
-       "P",
-       "Q",
-       "R",
-       "S",
-       "T",
-       "U",
-       "V",
-       "W",
-       "X",
-       "Y",
-       "Z",
-    ];
-    var userOptionalChars = [
-        "!",
-        "”",
-        "#",
-        "$",
-        "%",
-        "&",
-        "’",
-        "(",
-        ")",
-        "*",
-        "+",
-        ",",
-        "-",
-        ".",
-        "/",
-        ":",
-        ";",
-        "<",
-        "=",
-        ">",
-        "?",
-        "@",
-        "[",
-        "^",
-        "_",
-        "`",
-        "{",
-        "|",
-        "\\",
-        "}",
-        "~",
+var randompick = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  numeric: getRandomNumeric,
+  special: getRandomSpecial,
+  
+}
+
+function writePassword() {
+  
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+}
+
+
+// Generate functions
+
+
+function getRandomLower() {
+
+return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  
+}
+
+// console.log (getRandomLower())
+
+function getRandomUpper() {
+
+return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+    
+}
+
+// console.log (getRandomUpper())
 
 
 
-    ];
-    // ======= functions definition ======
-    function getUserOptions() {
-       // get user options and store in vars
-       // check for length (it should be longer than 8 and shorter than 128)
-       // check if lower
-       // check if upper
-       // check if special
-       // check if numeric
-       // check that at least one is true
-         // else - alert user
-     }
-     function generatePassword(userOptions) {
-       var password = [];
-       // if lower
-         // push a random lower char to password
-         // add lowerCharsArray to userOptionalChars
-       // if upper
-         // push a random upper char to password
-         // add upperCharsArray to userOptionalChars
-       // if special
-         // push a random special char to password
-         // add specialCharsArray to userOptionalChars
-       // if numeric
-         // push a random numeric char to password
-         // add numericCharsArray to userOptionalChars
-       // for loop between start number of elemnts in password to the requested number of charactars
-       // mutate the array to a string
-       // return password string
-     }
-    // ======= functions calls (start) ======
-    // getUserOptions();
-   
-    // generatePassword(userOption)
- }
- // Add event listener to generate button
- generateBtn.addEventListener("click", start);
- // var expectSpecialChars = false;
- // var expectNumericChars = false;
- // var expectUppercaseChars = false;
- // var expectLowercaseChars = false;
- // var userOptions = {
- //   expectSpecialChars: false,
- //   expectNumericChars: false,
- //   expectUppercaseChars: false,
- //   expectLowercaseChars: false,
- // }
+function getRandomNumeric() {
+  
+  return String.fromCharCode(Math.floor(Math.random() * 16) + 32);
+}
+
+
+// console.log (getRandomNumeric())
+var specialCharacters = []
+function getRandomSpecial() {
+	return (Math.floor(Math.random() * 10));
+}
+
+// console.log (getRandomSpecial())
