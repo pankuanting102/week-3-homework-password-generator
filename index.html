@@ -25,29 +25,29 @@
           ></textarea>
 
           <div>
-            <div>
+            <div class="checkbox">
               <label>Password length</label>
-              <input type="number" id="length" min='8' max='128' value='14' />
+              <input style="width: 60px" type="number" id="length" min='8' max='128' value='14' />
             </div>
-            <div>
-              <label>uppercase letters</label> 
+            <div class="checkbox">
+              <label>Uppercase</label> 
               <input type="checkbox" id="uppercase" checked />
             </div>
-            <div>
-              <label>lowercase letters</label> 
+            <div class="checkbox">
+              <label>Lowercase</label> 
               <input type="checkbox" id="lowercase" checked />
             </div>
-            <div>
+            <div class="checkbox">
               <label>Numbers</label> 
               <input type="checkbox" id="numeric" checked />
             </div>
-            <div>
+            <div class="checkbox">
               <label>Special Characters</label> 
               <input type="checkbox" id="special" checked />
             </div>
           </div>
         </div>
-        <div>
+        <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
       </div>

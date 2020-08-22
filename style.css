@@ -64,6 +64,7 @@ header {
   width: 100%;
   background: #e7e9eb;
   height: 2px;
+  margin-top: 30px;
 }
 
 .card-footer::after {
@@ -118,6 +119,12 @@ button[disabled] {
   overflow: hidden;
 }
 
+.checkbox{
+ font-size: 14px;
+ display: inline;
+ margin-right: 10px;
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
@@ -128,6 +135,12 @@ button[disabled] {
   #password {
     font-size: 1rem;
   }
+
+  .checkbox{
+    font-size: 14px;
+    display: block;
+    margin-right: 0px;
+   }
 }
 
 @media (max-width: 500px) {
