@@ -60,7 +60,7 @@ function writePassword() {
 
 
 // Generate functions
-
+// Get character from char code https://www.w3schools.com/charsets/ref_html_ascii.asp
 
 function getRandomLower() {
 

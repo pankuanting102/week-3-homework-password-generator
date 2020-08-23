@@ -5,11 +5,11 @@ var generateEl = document.querySelector("#generate");
 
 generateEl.addEventListener("click", () => {
 var length = prompt("How many characters would you like to include in your password?");
-if (length < 8 || length > 128) {
+if (length < 8 || length > 128 || length === null) {
   alert("Please input 8~128 characters")
   prompt("How many characters would you like to include in your password?")
 }
-
+console.log(length)
 // Define Condition
 console.log(length)
 var hasLower = confirm("Click ok to include lower case");
@@ -65,6 +65,7 @@ function writePassword() {
 
 
 // Generate functions
+// Get character from char code https://www.w3schools.com/charsets/ref_html_ascii.asp
 
 
 function getRandomLower() {
