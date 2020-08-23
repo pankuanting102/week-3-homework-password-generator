@@ -10,6 +10,6 @@ Prompt version is added afterwards in order to meet client(assignment) brief. pl
 <b>Checkbox Version:</b> 
 <br>https://pankuanting102.github.io/week-3-homework-password-generator/
 
-<br>Window Prompt Version:</b>
+<b>Window Prompt Version:</b>
 <br>https://pankuanting102.github.io/week-3-homework-password-generator/prompt%20version/prompt.html
 
