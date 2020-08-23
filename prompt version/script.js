@@ -1,26 +1,31 @@
-// Get element ID
+
 
 var resultEl = document.querySelector("#password");
-var lengthEl = document.querySelector("#length");
-var uppercaseEl = document.querySelector("#uppercase");
-var lowercaseEl = document.querySelector("#lowercase");
-var numericEl = document.querySelector("#numeric");
-var specialEl = document.querySelector("#special");
 var generateEl = document.querySelector("#generate");
 
-// Define Condition
 generateEl.addEventListener("click", () => {
-var length = +lengthEl.value;
-var hasLower = lowercaseEl.checked;
-var hasUpper = uppercaseEl.checked;
-var hasNumber = numericEl.checked;
-var hasSpecial = specialEl.checked;
+var length = prompt("How many characters would you like to include in your password?");
+if (length < 8 || length > 128) {
+  alert("Please input 8~128 characters")
+  prompt("How many characters would you like to include in your password?")
+}
 
+// Define Condition
+console.log(length)
+var hasLower = confirm("Click ok to include lower case");
+var hasUpper = confirm("Click ok to include upper case");
+var hasNumber = confirm("Click OK to include numbers");
+var hasSpecial = confirm("Click OK to include special characters");
+// console.log(hasLower)
+// console.log(hasUpper)
+// console.log(hasNumber)
+// console.log(hasSpecial)
 resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSpecial, length)
 }
 )
 // Loop every condition
 function generatePassword(lower, upper, special, numeric, length){
+ 
  var passwordResult = "";
  var typesCount = lower + upper + numeric + special;
  var typesloop = [{ lower }, { upper }, { numeric }, { special }].filter
@@ -43,7 +48,7 @@ function generatePassword(lower, upper, special, numeric, length){
  return pushedResult;
 
 }
-
+// Get Random Characters and Generate
 var randompick = {
   lower: getRandomLower,
   upper: getRandomUpper,
